@@ -1,6 +1,6 @@
 const submitButton = () => $('.enketo .submit');
 const nextButton = () => $('button.btn.btn-primary.next-page');
-const addButton = element(by.css('.action-container .general-actions:not(.ng-hide) .fa-plus'));
+const addButton = () => $('.action-container .general-actions:not(.ng-hide) .fa-plus');
 const leftActionBarButtons = () => $$('.general-actions .actions.dropup > a');
 const reportTitle = () => $('#report-form #form-title');
 
