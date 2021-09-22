@@ -1,4 +1,4 @@
-const concatenateStrings = require('../page-objects/forms/concatenate-strings.po');
+const concatenateStrings = require('../page-objects/forms/concatenate-strings.wdio.page');
 const common = require('../page-objects/common/common.wdio.page');
 const utils = require('../utils');
 const constants = require('../constants');
