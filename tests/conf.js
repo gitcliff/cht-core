@@ -16,12 +16,13 @@ const baseConfig = {
     '**/*wdio-spec.js',
     'e2e/api/**/*.js',
     'e2e/sentinel/**/*.js',
-    'e2e/transitions/**/*.js'
+    'e2e/transitions/**/*.js',
+    'e2e/**/*-config/*.js',
   ],
   suites: {
     web: [
-      //'e2e/!(cht)/**/*.js',
-      //'e2e/**/*.js',
+      'e2e/!(cht)/**/*.js',
+      'e2e/**/*.js',
       'cht-conf/**/*.js'
     ],
     cht: [
