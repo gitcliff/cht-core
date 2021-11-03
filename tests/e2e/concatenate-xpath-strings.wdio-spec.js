@@ -35,12 +35,12 @@ describe('Concatenate xpath strings', () => {
     const firstNameInput = () => $('[name="/concatenate-strings/inputs/first_name"]');
 
     let name = await (await fullNameInput()).getAttribute('value');
-    expect(name).toEqual('John Doe');
+    expect(name).to.equal('John Doe');
 
     await (await firstNameInput()).sendKeys('Bruce');
     await (await fullNameInput()).click();
 
     name = await (await fullNameInput()).getAttribute('value');
-    expect(name).toEqual('Bruce Wayne');
+    expect(name).to.equal('Bruce Wayne');
   });
 });
