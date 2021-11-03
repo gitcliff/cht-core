@@ -31,8 +31,8 @@ describe('Concatenate xpath strings', () => {
     await genericForm.selectForm(concatenateStrings.formInternalId, true);
     const concatElement = () => $('#concat');
     await(await concatElement()).waitForDisplayed();
-    const fullNameInput = () => $('/concatenate-strings/inputs/full_name');
-    const firstNameInput = () => $('/concatenate-strings/inputs/first_name');
+    const fullNameInput = () => $('[name = "/concatenate-strings/inputs/full_name"]');
+    const firstNameInput = () => $('[name = "/concatenate-strings/inputs/first_name"]');
 
     let name = await (await fullNameInput()).getAttribute('value');
     expect(name).toEqual('John Doe');
