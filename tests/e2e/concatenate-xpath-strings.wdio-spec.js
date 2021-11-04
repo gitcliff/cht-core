@@ -34,10 +34,10 @@ describe('Concatenate xpath strings', () => {
     await concatElement.waitForDisplayed();
     const fullNameInput = await $('[name="/concatenate-strings/inputs/full_name"]');
     const firstNameInput = await  $('[name="/concatenate-strings/inputs/first_name"]');
-    expect(await fullNameInput.getValue()).toEqual('John Doe');
-    
+    expect(await fullNameInput.getValue()).to.equal('John Doe');
+
     await firstNameInput.setValue('Bruce');
     await fullNameInput.click();
-    expect(await fullNameInput.getValue()).toEqual('Bruce Wayne');
+    expect(await fullNameInput.getValue()).to.equal('Bruce Wayne');
   });
 });
