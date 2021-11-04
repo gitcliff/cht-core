@@ -5,6 +5,7 @@ const constants = require('../constants');
 const genericForm = require('../page-objects/forms/generic-form.wdio.page');
 const loginPage = require('../page-objects/login/login.wdio.page');
 
+
 const userContactDoc = {
   _id: constants.USER_CONTACT_ID,
   name: 'Jack',
@@ -29,18 +30,14 @@ describe('Concatenate xpath strings', () => {
   it('concatenates strings', async () => {
     await common.goToReports();
     await genericForm.selectForm(concatenateStrings.formInternalId, true);
-    const concatElement = () => $('#concat');
-    await(await concatElement()).waitForDisplayed();
-    const fullNameInput = () => $('[name="/concatenate-strings/inputs/full_name"]');
-    const firstNameInput = () => $('[name="/concatenate-strings/inputs/first_name"]');
-
-    let name = await (await fullNameInput()).getAttribute('value');
-    expect(name).to.equal('John Doe');
-
-    await (await firstNameInput()).sendKeys('Bruce');
-    await (await fullNameInput()).click();
-
-    name = await (await fullNameInput()).getAttribute('value');
-    expect(name).to.equal('Bruce Wayne');
+    const concatElement = await $('#concat');
+    await concatElement.waitForDisplayed();
+    const fullNameInput = await $('[name="/concatenate-strings/inputs/full_name"]');
+    const firstNameInput = await  $('[name="/concatenate-strings/inputs/first_name"]');
+    expect(await fullNameInput.getValue()).toEqual('John Doe');
+    
+    await firstNameInput.setValue('Bruce');
+    await fullNameInput.click();
+    expect(await fullNameInput.getValue()).toEqual('Bruce Wayne');
   });
 });
