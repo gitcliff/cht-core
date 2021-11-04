@@ -4,6 +4,7 @@ const utils = require('../utils');
 const constants = require('../constants');
 const genericForm = require('../page-objects/forms/generic-form.wdio.page');
 const loginPage = require('../page-objects/login/login.wdio.page');
+const { expect } = require('chai');
 
 
 const userContactDoc = {
