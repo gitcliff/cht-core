@@ -24,7 +24,7 @@ const selectForm = async (formId, nonAdminUser = false) => {
   }
 
 
-  await (await addButton()).waitForDisplayed();
+  await (await addButton()).waitForClickable();
 
   // select form
   await (await addButton()).click();
