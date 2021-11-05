@@ -49,7 +49,7 @@ const docs = [
     }
   }];
 const submitButton = () => $('[ng-click="onSubmit()"]');
-const reportContent = () =>$('div#reports-content');
+const reportContent = () => $('div#reports-content');
 const refreshIcon = () => $('.icon.icon-refresh');
 
 module.exports = {

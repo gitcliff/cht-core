@@ -24,9 +24,10 @@ const userContactDoc = {
 // If this test starts failing then we need to document in the release notes that we've removed the deprecated
 // feature allowing for concatenation of strings
 describe('Concatenate xpath strings', () => {
-  before(() => loginPage.cookieLogin());
-  beforeEach(() => concatenateStrings.configureForm(userContactDoc));
-  afterEach(() => utils.revertDb([], true));
+  before(() => {
+    loginPage.cookieLogin();
+    concatenateStrings.configureForm(userContactDoc);
+  });
 
   it('concatenates strings', async () => {
     await common.goToReports();

@@ -131,14 +131,14 @@ module.exports = {
 
     // select form
     await helper.clickElementNative(addButton);
-    const form = module.exports.formByHref(formId);
+    const form = module.exports.getFormLinkElementById(formId);
     await helper.clickElementNative(form);
 
     // waiting for form
     await helper.waitUntilReadyNative(element(by.css('#report-form #form-title')));
   },
 
-  formByHref: (href) => {
+  getFormLinkElementById: (href) => {
     const css = `.action-container .general-actions .dropup.open .dropdown-menu li a[href="#/reports/add/${href}"]`;
     return element(by.css(css));
   },
