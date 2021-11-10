@@ -1,8 +1,8 @@
 const concatenateStrings = require('../page-objects/forms/concatenate-strings.wdio.page');
 const common = require('../page-objects/common/common.wdio.page');
 const constants = require('../constants');
-const genericForm = require('../page-objects/forms/generic-form.wdio.page');
 const loginPage = require('../page-objects/login/login.wdio.page');
+const reportsPage = require('../page-objects/reports/reports.wdio.page');
 const { expect } = require('chai');
 
 
@@ -23,14 +23,14 @@ const userContactDoc = {
 // If this test starts failing then we need to document in the release notes that we've removed the deprecated
 // feature allowing for concatenation of strings
 describe('Concatenate xpath strings', () => {
-  before(() => {
-    loginPage.cookieLogin();
-    concatenateStrings.configureForm(userContactDoc);
+  before(async () => {
+    await loginPage.cookieLogin();
+    await concatenateStrings.configureForm(userContactDoc);
   });
 
   it('concatenates strings', async () => {
     await common.goToReports();
-    await genericForm.selectForm(concatenateStrings.formInternalId, true);
+    await reportsPage.openForm('Concatenate Strings');
     const concatElement = await $('#concat');
     await concatElement.waitForDisplayed();
     const fullNameInput = await $('[name="/concatenate-strings/inputs/full_name"]');

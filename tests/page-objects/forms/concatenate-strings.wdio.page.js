@@ -53,8 +53,8 @@ const reportContent = () => $('div#reports-content');
 const refreshIcon = () => $('.icon.icon-refresh');
 
 module.exports = {
-  configureForm: (userContactDoc) => {
-    return utils.seedTestData(userContactDoc, docs);
+  configureForm: async (userContactDoc) => {
+    return await utils.seedTestData(userContactDoc, docs);
   },
 
   submit: async () => {
